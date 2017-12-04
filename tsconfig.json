@@ -1,0 +1,35 @@
+{
+    "version": "2.6.1",
+    "compilerOptions": {
+        "baseUrl": "src",
+        "noUnusedLocals": true,
+        "allowSyntheticDefaultImports": false,
+        "outDir": "./www/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "esnext",
+        "target": "ES6",
+        "jsx": "react",
+        "pretty": false,
+        "allowJs": false,
+        "isolatedModules": false,
+        "lib": [
+            "webworker", "es2015", "es6", "es2017", "es2017.object", "dom"
+        ],
+        "importHelpers": true,
+        "typeRoots": [
+            "node_modules/@types/",
+            "typings",
+            "../types.d.ts"
+        ],
+        "moduleResolution": "node",
+        "rootDir": "src"
+    },
+    "compileOnSave": false,
+    "include": [
+            "src"
+        ],
+        "exclude": [
+            "www"
+        ]
+}
