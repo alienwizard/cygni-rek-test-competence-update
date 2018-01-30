@@ -9,14 +9,18 @@
         "noImplicitAny": false,
         "module": "esnext",
         "target": "ES6",
-        "jsx": "react",
         "pretty": false,
         "allowJs": false,
         "isolatedModules": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "lib": [
             "webworker", "es2015", "es6", "es2017", "es2017.object", "dom"
         ],
         "importHelpers": true,
+        "types": [
+            "node"
+        ],
         "typeRoots": [
             "node_modules/@types/",
             "typings",

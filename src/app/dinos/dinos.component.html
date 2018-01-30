@@ -1,0 +1,9 @@
+<div>
+  <div class="Grid l-columns dino--grid" ng-if="dinos">
+    <div *ngFor="let dino of dinos" class="u-size1of3">
+      <figure >
+        <img class="dino--image-inline" src="https://farm{{dino.farm}}.staticflickr.com/{{dino.server}}/{{dino.id}}_{{dino.secret}}.jpg" alt="{{dino.title}}">
+      </figure>
+    </div>
+  </div>
+</div>

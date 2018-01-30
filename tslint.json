@@ -1,0 +1,95 @@
+{
+  "enable": true,
+  "extends": "tslint:recommended",
+  "defaultSeverity": "warning",
+  "rules": {
+    "no-empty":false,
+    "no-string-literal": false,
+    "one-variable-per-declaration": [
+        false
+    ],
+    "no-inferred-empty-object-type": false,
+    "no-shadowed-variable": {
+        "severity": "warning"
+    },
+    "object-literal-shorthand": true,
+    "curly": false,
+    "jsdoc-format": false,
+    "eofline": false,
+    "max-line-length": {
+        "severity": "warning",
+        "options": [180]
+    },
+    "no-console": true,
+    "no-empty-interface": false,
+    "interface-name": [
+        false,
+        "never-prefix"
+    ],
+    "ordered-imports": [
+        false,
+        "any"
+    ],
+    "trailing-comma": [
+        true
+    ],
+    "member-access": [
+        false
+    ],
+    "arrow-parens": false,
+    "object-literal-sort-keys": false,
+    "interface-over-type-literal": false,
+    "no-debugger": {
+        "severity": "warning"
+    },
+    "no-consecutive-blank-lines": true,
+    "class-name": true,
+    "object-literal-key-quotes": [
+        false    
+    ],  
+    "comment-format": [true, "check-space"],
+    "indent": [true, "spaces"],
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-internal-module": true,
+    "no-trailing-whitespace": false,
+    "no-var-keyword": true,
+    "one-line": [true, "check-open-brace", "check-whitespace"],
+    "quotemark": [false, "single"],
+    "semicolon": [false],
+    "triple-equals": [true, "allow-null-check"],
+    "typedef-whitespace": [true, {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+    }],
+    "variable-name": [true, "ban-keywords"],
+    "whitespace": [true,
+        "check-branch",
+        "check-decl",
+        "check-operator",
+        "check-separator",
+        "check-type"
+    ]
+  },
+  "jsRules": {
+      "indent": [true, "spaces"],
+      "no-duplicate-variable": true,
+      "no-eval": true,
+      "no-trailing-whitespace": true,
+      "one-line": [true, "check-open-brace", "check-whitespace"],
+      "quotemark": [true, "single"],
+      "semicolon": [false],
+      "triple-equals": [true, "allow-null-check"],
+      "variable-name": [true, "ban-keywords"],
+      "whitespace": [true,
+          "check-branch",
+          "check-decl",
+          "check-operator",
+          "check-separator",
+          "check-type"
+      ]
+  }
+}
