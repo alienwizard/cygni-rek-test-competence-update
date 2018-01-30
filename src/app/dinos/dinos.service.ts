@@ -13,7 +13,7 @@ import { APP_CONFIG, AppConfig } from 'app/app.config';
 class DinoService {
   currentPage: null | number;
   totalPages: null | number;
-  visiblePages: null | number;
+  perPage: null | number;
   dinoData;
   url: string;
   token: string;
@@ -23,7 +23,14 @@ class DinoService {
     this.url = config.apiEndPoint;
     this.token = config.token;
     this.http = HttpClient;
-    
+    this.currentPage = 1;
+    this.perPage = 50;
+  }
+  public getDinos(): Observable<any> {
+    return this.http.get(this.url + this.token + '&per_page' + this.perPage + '&page=' + this.currentPage)
+    .pipe(
+      catchError(this.handleError('getAllDinos', []))
+    );
   }
   public setPage(page: number) {
     this.currentPage = page;

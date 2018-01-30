@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import {HttpClientModule} from '@angular/common/http';
+
 import AppComponent from './app.component';
 import sharedModule from './common/shared.module';
 import DinosModule from 'app/dinos/dinos.module';
-import {HttpClientModule} from '@angular/common/http';
+import dinoReducer from 'app/dinos/reducer';
 import { APP_CONFIG, apiConfig } from 'app/app.config';
 
 @NgModule({
@@ -11,7 +14,8 @@ import { APP_CONFIG, apiConfig } from 'app/app.config';
     BrowserModule,
     HttpClientModule,
     sharedModule,
-    DinosModule   
+    DinosModule,
+    StoreModule.forRoot({ dinos: dinoReducer })   
   ],
   exports: [HttpClientModule],
   declarations: [ AppComponent ],

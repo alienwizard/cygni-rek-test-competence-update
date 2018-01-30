@@ -24,4 +24,10 @@ export default class DinosComponent implements OnInit {
     // TODO: fix preloading of next page
     console.log('initiated')
   }
+  prevPage() {
+    console.log('prevPage')
+  }
+  onClickMe() {
+    console.log('on click me')
+  }
 }

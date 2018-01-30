@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import DinoService from 'app/dinos/dinos.service';
 
 @Component({
   moduleId: module.id,  
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
 })
 
 export default class DinoHeader {
-
+  constructor(private dinoService: DinoService) {
+    console.log('constructed')
+  }
+  prevPage() {
+    console.log('prevPage')
+  }
 }
