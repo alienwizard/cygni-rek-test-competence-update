@@ -12,6 +12,7 @@
     "no-shadowed-variable": {
         "severity": "warning"
     },
+    "max-classes-per-file": false,
     "object-literal-shorthand": true,
     "curly": false,
     "jsdoc-format": false,

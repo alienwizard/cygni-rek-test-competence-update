@@ -1,36 +1,45 @@
-import { Action } from '@ngrx/store';
-
-export const PAGE_INCREMENT = 'INCREMENT';
-export const PAGE_DECREMENT = 'DECREMENT';
-export const REQUEST_DATA = 'REQUEST_DATA';
-export const RECIEVE_DATA = 'RECIEVE_DATA';
-export const HANDLE_ERROR = 'HANDLE_ERROR';
+import { Photo } from 'app/dinos/dinos.types';
+import { DinoActionTypes, DinoActions } from './actions/dino';
  
 export interface DinoState {
   data: {
-    pageCurrent: number,
-    per_page: number,
-    dinos: any[]
+    page: number,
+    pages: number
+    perpage: number,
+    total: string,
+    photo: Photo[]
   },
   isLoading: boolean,
-  error: null | object
+  error: string
 
 }
 
-export default function dinoReducer(state: number = 0, action: Action) {
+export default function dinoReducer(state: DinoState, action: DinoActions) {
   switch (action.type) {
-    case PAGE_INCREMENT:
-      return state + 1;
-
-    case PAGE_DECREMENT:
-      return state - 1;
-
-    case REQUEST_DATA:
-      return 0;
-    case RECIEVE_DATA: 
-      return null;
-    case HANDLE_ERROR:
-      return false;
+    case DinoActionTypes.SetPage:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          page: action.payload
+        }
+      };
+    case DinoActionTypes.Request:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case DinoActionTypes.RequestComplete: 
+      return {
+        ...state,
+        data: action.payload,
+        isLoading: false
+      }
+    case DinoActionTypes.RequestError:
+      return {
+        ...state,
+        error: action.payload
+      };
     default:
       return state;
   }

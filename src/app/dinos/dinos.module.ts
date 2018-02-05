@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import DinoHeader from './header/header.component';
 import DinosComponent from 'app/dinos/dinos.component';
-import DinoService from 'app/dinos/dinos.service';
+import DinoDetailComponent from 'app/dinos/dino-detail.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ DinosComponent, DinoHeader ],
+  declarations: [ 
+    DinosComponent,
+    DinoHeader,
+    DinoDetailComponent
+  ],
   exports:   [ DinosComponent ],
-  providers: [DinoService]
 })
 export default class DinosModule { }

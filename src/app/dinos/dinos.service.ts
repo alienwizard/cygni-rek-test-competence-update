@@ -1,3 +1,4 @@
+import { Photo } from 'app/dinos/dinos.types';
 import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { catchError} from 'rxjs/operators';
@@ -5,9 +6,14 @@ import { catchError} from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import * as qs from 'qs';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
-import { APP_CONFIG, AppConfig } from 'app/app.config';
+import {apiConfig } from 'app/app.config';
+
+type flikrResponse = {
+  photos: Photo[];
+}
 
 @Injectable()
 class DinoService {
@@ -18,19 +24,22 @@ class DinoService {
   url: string;
   token: string;
   http: HttpClient;
-  constructor(@Inject(APP_CONFIG) config: AppConfig, private HttpClient: HttpClient) {
-    console.log('yooo');
-    this.url = config.apiEndPoint;
-    this.token = config.token;
+  constructor(private HttpClient: HttpClient) {
+    console.log('yooo', this.url);
+    this.url = apiConfig.apiEndPoint;
+    this.token = apiConfig.token;
     this.http = HttpClient;
     this.currentPage = 1;
     this.perPage = 50;
   }
-  public getDinos(): Observable<any> {
-    return this.http.get(this.url + this.token + '&per_page' + this.perPage + '&page=' + this.currentPage)
-    .pipe(
-      catchError(this.handleError('getAllDinos', []))
-    );
+  public getDinos(query?): Observable<any> {
+    let params = '';
+    if (query) {
+      params = qs.stringify(query);
+    }
+    params = params ? params : ''
+    console.log('url', this.url + this.token + params ? params : '', params);
+    return this.http.get(this.url + this.token).map((res: flikrResponse) => res.photos )
   }
   public setPage(page: number) {
     this.currentPage = page;

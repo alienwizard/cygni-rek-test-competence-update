@@ -24,7 +24,7 @@
 }
 
 .l-columns {
-  flex-flow: row;
+  flex-flow: row wrap;
 
   &.l-columns--justifyContent-Center {
     justify-content: center;
