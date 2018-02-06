@@ -99,6 +99,9 @@ module.exports = (env) => {
       ]
     },
     resolve: {
+      alias: {
+        'normalize': path.join(__dirname, 'node_modules/normalize.css/normalize'),
+      },
       modules: ['node_modules', 'src'],
       extensions: [' ', '.ts', '.tsx', '.js', '.jsx', '.scss', '.css']      
     },
