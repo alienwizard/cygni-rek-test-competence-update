@@ -7,7 +7,9 @@
     "test": "jest --no-cache",
     "test:watch": "jest --watch",
     "build": "webpack --env=development",
-    "start": "webpack-dev-server --inline --progress --env=development"
+    "start": "webpack-dev-server --inline --progress --env=development",
+    "start-prod": "webpack-dev-server --inline --progress --env=production",
+    "build-prod": "webpack --env=production"
   },
   "keywords": [],
   "author": "",

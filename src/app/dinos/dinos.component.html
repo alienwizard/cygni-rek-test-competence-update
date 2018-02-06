@@ -1,6 +1,6 @@
 <div>
   <pagination></pagination>
-  <div class="Grid l-columns dino--grid" ng-if="dinos">
+  <div class="Grid Grid--gutterH--small Grid--gutterV--small l-columns dino--grid" ng-if="dinos">
     <div *ngFor="let dino of dinos | async" class="u-size1of3">
       <dino-detail [dino]="dino"></dino-detail>
     </div>

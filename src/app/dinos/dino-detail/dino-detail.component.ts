@@ -7,7 +7,7 @@ import {Photo} from 'app/dinos/dinos.types';
 @Component({
   moduleId: module.id,  
   selector: 'dino-detail',
-  template: `<figure class="dino-figure" *ngIf="dino" [ngStyle]="getbackgroundImage()"></figure>`,
+  template: `<div class="dino-figure"><figure class="dino-figure--inner" *ngIf="dino" [ngStyle]="getbackgroundImage()"></figure></div>`,
   styleUrls: ['./dino-detail.component.scss'],
 
 })

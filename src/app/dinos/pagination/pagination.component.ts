@@ -19,10 +19,9 @@ export default class PaginationComponent {
   page: number;
   pages: number;
   constructor(private store: Store<AppState>) {
-    console.log('constructed')
     this.page = null;
     this.pages = null;
-    this.title = 'The Testpage'
+    this.title = 'The Jurassic Network'
   }
 
   getCurrentPage(): Observable<number> {

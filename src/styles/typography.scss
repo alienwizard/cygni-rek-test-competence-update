@@ -6,6 +6,9 @@ h1 {
   line-height: 2rem;
   margin-top: 0;
   margin-bottom: 2rem;
+  &.dino-title {
+    font-size: $font-size--large
+  }
 }
 
 .material-icons {

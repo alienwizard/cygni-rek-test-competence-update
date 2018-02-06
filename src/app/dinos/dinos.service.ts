@@ -26,7 +26,6 @@ class DinoService {
   http: HttpClient;
   defaulParams: PhotoParams;
   constructor(private HttpClient: HttpClient) {
-    console.log('yooo', this.url);
     this.url = apiConfig.apiEndPoint;
     this.token = apiConfig.token;
     this.http = HttpClient;
@@ -38,11 +37,8 @@ class DinoService {
     }
   }
   public getDinos(query?): Observable<any> {
-    let params;
-    if (query) {
-      params = Object.assign({}, this.defaulParams, query);
-      params = qs.stringify(params);
-    }
+    let params = Object.assign({}, this.defaulParams, query);
+    params = qs.stringify(params);
     params = params ? params : ''
     console.log('url params', params);
     return this.http.get(this.url + this.token + '&' + params).map((res: flikrResponse) => res.photos )
