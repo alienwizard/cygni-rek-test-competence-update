@@ -10,6 +10,11 @@ type Photo = {
   isfamily: number
 }
 
+type PhotoParams = {
+  page?: number,
+  per_page ?: number,
+}
+
 type ResponseType = {
   photos: {
     
@@ -18,5 +23,6 @@ type ResponseType = {
 
 export {
   ResponseType,
-  Photo
+  Photo,
+  PhotoParams
 }

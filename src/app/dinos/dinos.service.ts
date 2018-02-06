@@ -1,4 +1,4 @@
-import { Photo } from 'app/dinos/dinos.types';
+import { Photo, PhotoParams } from 'app/dinos/dinos.types';
 import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { catchError} from 'rxjs/operators';
@@ -24,6 +24,7 @@ class DinoService {
   url: string;
   token: string;
   http: HttpClient;
+  defaulParams: PhotoParams;
   constructor(private HttpClient: HttpClient) {
     console.log('yooo', this.url);
     this.url = apiConfig.apiEndPoint;
@@ -31,34 +32,20 @@ class DinoService {
     this.http = HttpClient;
     this.currentPage = 1;
     this.perPage = 50;
+    this.defaulParams = {
+      page: 1,
+      per_page: 50
+    }
   }
   public getDinos(query?): Observable<any> {
-    let params = '';
+    let params;
     if (query) {
-      params = qs.stringify(query);
+      params = Object.assign({}, this.defaulParams, query);
+      params = qs.stringify(params);
     }
     params = params ? params : ''
     console.log('url params', params);
     return this.http.get(this.url + this.token + '&' + params).map((res: flikrResponse) => res.photos )
-  }
-  public setPage(page: number) {
-    this.currentPage = page;
-    return this.http.get(this.url + this.token + '')
-    .pipe(
-      catchError(this.handleError('getAllDinos', []))
-    );
-  }
-  public setVisible(visible: number) {
-    return this.http.get(this.url + this.token)
-    .pipe(
-      catchError(this.handleError('getAllDinos', []))
-    );
-  }
-  public getAllDinos(): Observable<any> {
-    return this.http.get(this.url + this.token)
-      .pipe(
-        catchError(this.handleError('getAllDinos', []))
-      );
   }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

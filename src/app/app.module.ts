@@ -24,7 +24,7 @@ export type AppState = {
     sharedModule,
     DinosModule,
     StoreModule.forRoot({ dinos: dinoReducer }),
-    EffectsModule.forRoot([DinoEffects])   ,
+    EffectsModule.forRoot([DinoEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     })
