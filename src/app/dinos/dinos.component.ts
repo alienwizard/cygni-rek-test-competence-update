@@ -6,12 +6,6 @@ import {Photo} from 'app/dinos/dinos.types';
 import { Request } from 'app/dinos/actions/dino';
 import { DinoState } from './reducer';
 import { Observable } from 'rxjs/Observable';
-@Component({
-  moduleId: module.id,  
-  selector: 'dino-list',
-  templateUrl: './dinos.component.html',
-  styleUrls: ['./dinos.component.scss'],
-})
 
 @Component({
   moduleId: module.id,  

@@ -21,6 +21,7 @@ export default function dinoReducer(state: DinoState, action: DinoActions) {
         ...state,
         data: {
           ...state.data,
+          isLoading: true,
           page: action.payload
         }
       };

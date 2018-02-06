@@ -38,8 +38,8 @@ class DinoService {
       params = qs.stringify(query);
     }
     params = params ? params : ''
-    console.log('url', this.url + this.token + params ? params : '', params);
-    return this.http.get(this.url + this.token).map((res: flikrResponse) => res.photos )
+    console.log('url params', params);
+    return this.http.get(this.url + this.token + '&' + params).map((res: flikrResponse) => res.photos )
   }
   public setPage(page: number) {
     this.currentPage = page;

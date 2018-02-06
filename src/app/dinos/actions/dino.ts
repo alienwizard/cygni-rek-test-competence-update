@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Dino } from 'app/dinos/dinos.types';
+import { Photo } from 'app/dinos/dinos.types';
 
 export enum DinoActionTypes {
   Request = '[Dino] Request',
@@ -20,7 +20,7 @@ export class Request implements Action {
 
 export class RequestComplete implements Action {
   readonly type = DinoActionTypes.RequestComplete;
-  constructor(public payload: Dino[]) {}
+  constructor(public payload: Photo[]) {}
 }
 export class RequestError implements Action {
   readonly type = DinoActionTypes.RequestError;
@@ -29,12 +29,12 @@ export class RequestError implements Action {
 
 export class Load implements Action {
   readonly type = DinoActionTypes.Load;
-  constructor(public payload: Dino) {}
+  constructor(public payload: Photo) {}
 }
 
 export class SetPage implements Action {
   readonly type = DinoActionTypes.SetPage;
-  constructor(public payload: number) {}
+  constructor(public payload: {page: number}) {}
 }
 
 export type DinoActions = Request |  RequestComplete | RequestError | Load | SetPage;

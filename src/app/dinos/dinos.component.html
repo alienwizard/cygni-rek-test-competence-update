@@ -1,12 +1,8 @@
 <div>
-  <button (click)="onClickMe(dinos)">YOLO</button>
-  {{JSON.stringify(dinos | async)}}
-  <dino-header></dino-header>
+  <pagination></pagination>
   <div class="Grid l-columns dino--grid" ng-if="dinos">
     <div *ngFor="let dino of dinos | async" class="u-size1of3">
-      <figure>
-        <img class="dino--image-inline" src="https://farm{{dino.farm}}.staticflickr.com/{{dino.server}}/{{dino.id}}_{{dino.secret}}.jpg" alt="{{dino.title}}">
-      </figure>
+      <dino-detail [dino]="dino"></dino-detail>
     </div>
   </div>
 </div>
